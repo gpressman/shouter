@@ -6,8 +6,13 @@ class FollowingRelationshipsController < ApplicationController
 	end
 
 	def destroy
-		user = User.find(params[:user_id])
 		current_user.followed(user)
 		redirect_to(user)
+	end
+
+	private
+
+	def user
+		User.find(params[:user_id])
 	end
 end
