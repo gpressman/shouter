@@ -13,6 +13,6 @@ module ShoutsHelper
 	private
 
 	def link_hashtags text
-		text.gsub(/#(\w+)/) {|match| link_to(match, hashtag_path(match.($1)))}
+		text.gsub(/#\w+/) {|match| link_to(match, hashtag_path(match.slice(1..-2)))}
 	end
 end
